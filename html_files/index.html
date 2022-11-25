@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>YouTube Downloader</title>
+  </head>
+
+  <style>
+    p {
+      font-size: 20px;
+    }
+    #line {
+      position: fixed; /* 要素の位置を固定する */
+      bottom: 0; /* 基準の位置を画面の一番下に指定する */
+      left: 0; /* 基準の位置を画面の一番右に指定する */
+      margin: 5px;
+    }
+    header {
+      position:fixed;
+      top:0;
+      left:5;
+      background: rgba(255,255,255);
+      width:98%;
+      height:60px;
+      border: 3px solid #333333;
+      margin:auto;
+    }
+    font.title {
+      position:fixed;
+      top:0;
+      left:10;
+      font-size:40px;
+      margin:15px;
+    }
+    li {
+      font-size:40px;
+    }
+    img {
+      margin:10px;
+    }
+    .btn{
+      position:fixed;
+      top:0;
+      right:0;
+      width:200px;
+      hight:200px;
+      margin:20px;
+    }
+    .btn a{
+      display:block;
+      width:100%;
+      height:100%;
+      text-decoration: none;
+      background:#0099FF;
+      text-align:center;
+      color:#FFFFFF;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:50px;
+      -webkit-border-radius:50px;
+      -moz-border-radius:50px;
+      box-shadow:5px 5px 0px 0px #DEDEDE ;
+    }
+    .btn a:hover{
+      background:#0099FF;
+      color:#FFFC00;
+      margin-left:5px;
+      margin-top:5px;
+      box-shadow:none;
+    }
+    input {
+      width: 300px;
+    }
+    .dl_button{
+      display: flex;
+      justify-content: center;
+    }
+    .dl_button a,dl_button {
+      margin-left: 5px;
+      display: inline-block;
+      text-decoration: none;
+      background:#0099FF;
+      text-align:center;
+      color:#FFFFFF;
+      font-size:20tpx;
+      font-weight:bold;
+      border-radius:50px;
+      -webkit-border-radius:50px;
+      -moz-border-radius:50px;
+      box-shadow:5px 5px 0px 0px #DEDEDE ;
+      padding: 10px;
+    }
+    .dl_button a:hover,dl_button{
+      background:#0099FF;
+      color:#FFFC00;
+      box-shadow:none;
+    }
+    .warm {
+      text-align: center;
+      hight: 50px;
+    }
+    .warm p {
+      background: #FF0000;
+      color: #FFFFFF;
+      hight: 50px;
+      font-weight:bold;
+    }
+    main {
+      background: #ffffff;
+      margin-top: 100px;
+    }
+    body {
+      margin: 0;
+      display: flex;
+      flex-flow: column;
+      min-height: 100vh;
+    }
+    form {
+      text-align: center;
+    }
+  </style>
+  
+  <body>
+    <header>
+      <img src="./images/logo.png" title="logo" width="50px" hight="50px">
+      <font face="UD デジタル 教科書体 N-B" class="title">YouTube Downloader</font>
+      <div class='btn'>
+        <a href='https://replit.com/@Hoshimikan6490/Youtube-Downloader'>中身を見る</a>
+      </div>
+    </header>
+
+    <main>
+      <form>
+        <p>YouTubeの動画URLを入力して、「ダウンロード」を押してください。</p>
+        <div class='dl_button'>
+          <input placeholder="http://www.youtube.com/watch?v=" id="youtube_url">
+          <a class='dl_button' href="#" onclick="clickEvent()">ダウンロード</a>
+        </div>
+      </form>
+      <br>
+      <div class='warm'>
+        <p class='red'>🚨ダウンロードした動画は必ず個人利用をしてください！🚨</p>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    function clickEvent() {
+      let url = document.getElementById('youtube_url').value;
+      let movie_id = url.substr(31)
+        window.location.href = "https://yt-download.hoshimikan6490.repl.co/api/ytdl/" + movie_id;　
+    }
+  </script>
+</html>
